@@ -1,3 +1,3 @@
 # Documentation
 
-View the online documentation at **https://tttapa.github.io/LADEL**.
+View the online documentation at **https://kul-optec.github.io/LADEL**.

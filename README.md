@@ -3,7 +3,7 @@ Quasidefinite sparse LDL factorization package with rank 1 updates and (symmetri
 
 ## Documentation
 
-The documentation for LADEL can be found [online](https://benny44.github.io/LADEL/).
+The documentation for LADEL can be found [online](https://kul-optec.github.io/LADEL/).
 
 ## License
 

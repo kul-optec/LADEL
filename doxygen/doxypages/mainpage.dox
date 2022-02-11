@@ -5,7 +5,7 @@
  * LADEL is a package providing LDL and factorization update routines for sparse matrices.
  * 
  * \section install_sec Installation
- * See the instructions on the <a href=https://github.com/Benny44/LADEL>Readme</a>.
+ * Please see the @ref installation-md page.
  * 
  * \section example Using LADEL (in Matlab)
  * 
@@ -24,15 +24,9 @@
  * assert(norm(y-M\x) < 1e-12);
  * \endcode
  * 
- * You can find many other examples in interfaces/mex/demos.
- *  
- * \section cite Citing LADEL
- * 
- * Will be updated soon.
+ * You can find many other examples in LADEL/mex/demos.
  * 
  * \section license License
- * \subsection Subsection
- * \subsubsection Subsubsection
  * 
  * LGPL 3.0
  */

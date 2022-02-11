@@ -7,14 +7,14 @@ To compile the Matlab interface, you need Matlab and MEX as well.
 
 ## Download
 
-Download LADEL from <https://github.com/tttapa/LADEL.git> ([direct link](https://github.com/tttapa/LADEL/archive/refs/heads/main.zip)):
+Download LADEL from <https://github.com/kul-optec/LADEL.git> ([direct link](https://github.com/kul-optec/LADEL/archive/refs/heads/main.zip)):
 
 ```sh
-git clone https://github.com/tttapa/LADEL.git --single-branch --depth 1
+git clone https://github.com/kul-optec/LADEL.git --single-branch --depth 1
 ```
 Alternatively, without git
 ```sh
-wget https://github.com/tttapa/LADEL/archive/refs/heads/main.tar.gz -O- | tar xzf -
+wget https://github.com/kul-optec/LADEL/archive/refs/heads/main.tar.gz -O- | tar xzf -
 ```
 
 ## Matlab installation
@@ -25,10 +25,14 @@ Open a terminal inside of the LADEL repository, and configure and build the
 project:
 
 ```sh
-cmake -B build -S LADEL -D CMAKE_BUILD_TYPE=Release -D LADEL_WITH_MEX=On -D CMAKE_POSITION_INDEPENDENT_CODE=On
+cmake -B build -S LADEL \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D LADEL_WITH_MEX=On \
+    -D CMAKE_POSITION_INDEPENDENT_CODE=On
 ```
 ```sh
-cmake --build build --config Release -j
+cmake --build build \
+    --config Release -j
 ```
 
 ### Install
@@ -36,7 +40,10 @@ cmake --build build --config Release -j
 On Linux, Matlab automatically adds `~/Documents/MATLAB` to the path, so it's easiest install LADEL there:
 
 ```sh
-cmake --install build --config Release --component mex_interface --prefix ~/Documents/MATLAB
+cmake --install build \
+    --config Release \
+    --component mex_interface \
+    --prefix ~/Documents/MATLAB
 ```
 
 ### Uninstall
