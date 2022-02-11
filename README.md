@@ -8,7 +8,7 @@ The documentation for LADEL can be found [online](https://benny44.github.io/LADE
 ## License
 
 LADEL is licensed under LGPL v3.0. This library relies on the following external module:
-* AMD, licensed under [BSD 3](https://github.com/Benny44/LADEL/blob/master/amd/License.txt), Copyright (c), 1996-2015, Timothy A. Davis, Patrick R. Amestoy, and Iain S. Duff, see (Amestoy et al., 2004).
+* AMD, licensed under [BSD 3](thirdparty/SuiteSparse/AMD/Doc/License.txt), Copyright (c), 1996-2015, Timothy A. Davis, Patrick R. Amestoy, and Iain S. Duff, see (Amestoy et al., 2004).
 
 LADEL contains an implementation of several sparse matrix routines outlined in (Davis, 2006), separate from the reference implementation in [CSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse/tree/master/CSparse), licensed under [LGPL v2.1](https://github.com/DrTimothyAldenDavis/SuiteSparse/blob/master/CSparse/Doc/License.txt).
 
