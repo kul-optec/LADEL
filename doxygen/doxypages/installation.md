@@ -54,11 +54,25 @@ To uninstall LADEL, simply remove the `@ladel` folder from where you installed i
 rm -r "~/Documents/MATLAB/@ladel"
 ```
 
-## C/C++ installation
+## C installation
 
-LADEL currently offers no install target for the C/C++ libraries and headers,
-but you can easily add it to your own CMake projects using e.g.
-`add_subdirectory`. If you do so, include the `LADEL` subfolder (the one with
-the `include`, `mex` and `src` directories in it), not the root of the 
-directory, which is the developer project (which includes extra warnings, tests,
-code coverage, etc.).
+To install the C libraries and headers, simply follow the standard 
+CMake configure, build, install instructions:
+
+```sh
+cmake -B build -S LADEL \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_POSITION_INDEPENDENT_CODE=On
+cmake --build build --config Release -j
+cmake --install build --config Release --prefix /usr/local
+```
+
+If you just need the shared libraries, you can use:
+```sh
+cmake -B build -S LADEL \
+    -D CMAKE_BUILD_TYPE=Release \
+    -D CMAKE_POSITION_INDEPENDENT_CODE=On \
+    -D BUILD_SHARED_LIBS=On
+cmake --build build --config Release -j
+cmake --install build --config Release --component shlib --prefix /usr/local
+```
