@@ -1,5 +1,5 @@
 # LADEL
-Quasidefinite sparse LDL factorization package with rank 1 updates and (symmetric) row/column adds and deletes. 
+Quasidefinite sparse LDL factorization package with rank 1 updates and (symmetric) row/column additions and deletes. 
 
 ## Documentation
 
