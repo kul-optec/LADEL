@@ -3,7 +3,7 @@
  * @author Ben Hermans
  * @brief Routines to compute the elimination tree of a matrix.
  * @details Computing the elimination tree is the first part of the symbolic factorization. 
- * One routine in this file simply computes the etree, the other (compile with -DSIMPLE_COL_COUNTS) 
+ * One routine in this file simply computes the etree, the other (compile with -DLADEL_SIMPLE_COL_COUNTS) 
  * computes the etree and column counts in parallel (but has worse time complexity).
  */
 
@@ -29,7 +29,7 @@ ladel_int ladel_etree(  ladel_sparse_matrix *M,
                         ladel_symbolics     *sym, 
                         ladel_work          *work);
 
-#ifdef SIMPLE_COL_COUNTS
+#ifdef LADEL_SIMPLE_COL_COUNTS
 /**
  * Computes the elimination tree and column counts of a matrix.
  * 

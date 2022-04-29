@@ -58,7 +58,7 @@ TEST_F(TestEtree, testEtree)
     }
 }
 
-#ifdef SIMPLE_COL_COUNTS
+#ifdef LADEL_SIMPLE_COL_COUNTS
 TEST_F(TestEtree, testEtreeAndColCounts)
 {
     ladel_int etree_ref[NCOL] = {5, 2, 7, 5, 7, 6, 8, 9, 9, 10, NONE};
@@ -73,4 +73,4 @@ TEST_F(TestEtree, testEtreeAndColCounts)
         mu_assert_long_eq(sym->col_counts[col], col_counts_ref[col]-col-1);        
     }
 }
-#endif /*SIMPLE_COL_COUNTS*/
+#endif /*LADEL_SIMPLE_COL_COUNTS*/

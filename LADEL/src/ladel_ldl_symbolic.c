@@ -7,9 +7,9 @@
 #include "ladel_col_counts.h"
 #include "ladel_debug_print.h"
 
-#ifdef DAMD
+#ifdef LADEL_USE_AMD
 #include "amd.h"
-#endif /*DAMD*/
+#endif /*LADEL_USE_AMD*/
 
 ladel_int ladel_ldl_symbolic(ladel_sparse_matrix *M, ladel_symbolics *sym, ladel_int ordering_method, ladel_sparse_matrix *Mpp, ladel_work* work)
 {
@@ -18,7 +18,7 @@ ladel_int ladel_ldl_symbolic(ladel_sparse_matrix *M, ladel_symbolics *sym, ladel
     ladel_sparse_matrix *Mwork = M;
     if (ordering_method == AMD)
     {
-        #ifdef DAMD
+        #ifdef LADEL_USE_AMD
         ladel_int status;
         double Info [AMD_INFO];
 
@@ -29,7 +29,7 @@ ladel_int ladel_ldl_symbolic(ladel_sparse_matrix *M, ladel_symbolics *sym, ladel
         #endif
         if (status != AMD_OK) return FAIL;
         
-        #else /*DAMD*/
+        #else /*LADEL_USE_AMD*/
         sym->p = ladel_free(sym->p);
         #endif
     } else if (ordering_method == GIVEN_ORDERING)
@@ -47,13 +47,13 @@ ladel_int ladel_ldl_symbolic(ladel_sparse_matrix *M, ladel_symbolics *sym, ladel
         ladel_invert_permutation_vector(sym->p, sym->pinv, M->ncol);
     }
 
-    #ifdef SIMPLE_COL_COUNTS
+    #ifdef LADEL_SIMPLE_COL_COUNTS
     ladel_etree_and_col_counts(Mwork, sym, work);
     #else
     ladel_etree(Mwork, sym, work);
     ladel_postorder(Mwork, sym, work);
     ladel_col_counts(Mwork, sym, work);
-    #endif /* SIMPLE_COL_COUNTS */
+    #endif /* LADEL_SIMPLE_COL_COUNTS */
 
     return SUCCESS;
 }

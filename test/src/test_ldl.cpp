@@ -175,7 +175,7 @@ TEST_F(TestLDL, testSimpleLDLwithPartialDiag)
 
 }
 
-#ifdef DAMD
+#ifdef LADEL_USE_AMD
 TEST_F(TestLDL, testSimpleLDLwithAMD)
 {
     ladel_double x[NCOL] = {1, 2, 3, 4, 5};

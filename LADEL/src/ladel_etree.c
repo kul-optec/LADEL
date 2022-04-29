@@ -34,7 +34,7 @@ ladel_int ladel_etree(ladel_sparse_matrix *M, ladel_symbolics *sym, ladel_work* 
     return SUCCESS;
 }
 
-#ifdef SIMPLE_COL_COUNTS
+#ifdef LADEL_SIMPLE_COL_COUNTS
 ladel_int ladel_etree_and_col_counts(ladel_sparse_matrix *M, ladel_symbolics *sym, ladel_work* work)
 {
     if (!M || !sym || !work) return FAIL;

@@ -42,18 +42,12 @@ add_library(ladel
 target_include_directories(ladel
     PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
            $<INSTALL_INTERFACE:include>)
-if (LADEL_SIMPLE_COL_COUNTS)
-    target_compile_definitions(ladel PUBLIC SIMPLE_COL_COUNTS)
-endif()
-if (LADEL_64BIT_INDICES)
-    target_compile_definitions(ladel PUBLIC LADEL_64BIT_INDICES)
-endif()
-if (LADEL_SINGLE_PRECISION)
-    target_compile_definitions(ladel PUBLIC LADEL_SINGLE_PRECISION)
-endif()
-
+target_compile_definitions(ladel PUBLIC 
+    $<$<BOOL:${LADEL_SIMPLE_COL_COUNTS}>:LADEL_SIMPLE_COL_COUNTS>
+    $<$<BOOL:${LADEL_64BIT_INDICES}>:LADEL_64BIT_INDICES>
+    $<$<BOOL:${LADEL_SINGLE_PRECISION}>:LADEL_SINGLE_PRECISION>)
 if (LADEL_USE_AMD)
-    target_compile_definitions(ladel PUBLIC DAMD)
+    target_compile_definitions(ladel PUBLIC LADEL_USE_AMD)
     add_subdirectory(../thirdparty/SuiteSparse SuiteSparse EXCLUDE_FROM_ALL)
     target_link_libraries(ladel PRIVATE ladel_amd)
 endif()
