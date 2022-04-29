@@ -12,6 +12,10 @@ option (LADEL_SINGLE_PRECISION
 option (LADEL_WITH_MEX
     "Compile the MATLAB interface" Off)
 
+if (LADEL_WITH_MEX AND LADEL_SINGLE_PRECISION)
+    message(FATAL_ERROR "The MEX interface is not available in single-precision")
+endif()
+
 # Main LADEL library
 add_library(ladel 
     "src/ladel_debug_print.c"
