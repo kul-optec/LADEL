@@ -11,10 +11,10 @@ jobs:
                      '-DLADEL_SIMPLE_COL_COUNTS=Off']
         amd:        ['-DLADEL_USE_AMD=On',
                      '-DLADEL_USE_AMD=Off']
-        long:       ['-DLADEL_LONG=On',
-                     '-DLADEL_LONG=Off']
-        float:      ['-DLADEL_FLOAT=On',
-                     '-DLADEL_FLOAT=Off']
+        long:       ['-DLADEL_64BIT_INDICES=On',
+                     '-DLADEL_64BIT_INDICES=Off']
+        float:      ['-DLADEL_SINGLE_PRECISION=On',
+                     '-DLADEL_SINGLE_PRECISION=Off']
     steps:
     - uses: actions/checkout@v2
     - name: Install Google Test
@@ -42,10 +42,10 @@ jobs:
                      '-DLADEL_SIMPLE_COL_COUNTS=Off']
         amd:        ['-DLADEL_USE_AMD=On',
                      '-DLADEL_USE_AMD=Off']
-        long:       ['-DLADEL_LONG=On',
-                     '-DLADEL_LONG=Off']
-        float:      ['-DLADEL_FLOAT=On',
-                     '-DLADEL_FLOAT=Off']
+        long:       ['-DLADEL_64BIT_INDICES=On',
+                     '-DLADEL_64BIT_INDICES=Off']
+        float:      ['-DLADEL_SINGLE_PRECISION=On',
+                     '-DLADEL_SINGLE_PRECISION=Off']
     steps:
     - uses: actions/checkout@v2
     - name: Install Google Test
