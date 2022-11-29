@@ -283,7 +283,7 @@ extern "C"
 // importing/exporting symbols for Microsoft Visual Studio
 //------------------------------------------------------------------------------
 
-#if SUITESPARSE_COMPILER_MSC
+#if SUITESPARSE_COMPILER_MSC && 0
 
     // import/export for MS Visual Studio
     #ifdef SUITESPARSE_LIBRARY
