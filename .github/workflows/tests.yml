@@ -16,7 +16,7 @@ jobs:
         float:      ['-DLADEL_SINGLE_PRECISION=On',
                      '-DLADEL_SINGLE_PRECISION=Off']
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install Google Test
       shell: bash
       run: ./scripts/install-gtest.sh Debug
@@ -47,7 +47,7 @@ jobs:
         float:      ['-DLADEL_SINGLE_PRECISION=On',
                      '-DLADEL_SINGLE_PRECISION=Off']
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Install Google Test
       shell: powershell
       run: ./scripts/install-gtest.ps1 Debug
