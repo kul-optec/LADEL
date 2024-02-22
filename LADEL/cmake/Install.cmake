@@ -1,6 +1,6 @@
 include(GNUInstallDirs)
 
-set(INSTALL_CMAKE_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/ladel")
+set(INSTALL_CMAKE_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 
 # Add the ladel library to the "export-set", install the library files
 install(TARGETS ladel EXPORT ladelTargets
@@ -29,7 +29,7 @@ install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/"
 
 # Install the export set for use with the install-tree
 install(EXPORT ladelTargets 
-    FILE ladelTargets.cmake
+    FILE ${PROJECT_NAME}Targets.cmake
     DESTINATION "${INSTALL_CMAKE_DIR}" 
         COMPONENT dev
     NAMESPACE ${PROJECT_NAME}::)
@@ -38,23 +38,23 @@ install(EXPORT ladelTargets
 include(CMakePackageConfigHelpers)
 configure_package_config_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Config.cmake.in"
-    "${PROJECT_BINARY_DIR}/ladelConfig.cmake"
+    "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
     INSTALL_DESTINATION "${INSTALL_CMAKE_DIR}"
     NO_SET_AND_CHECK_MACRO
     NO_CHECK_REQUIRED_COMPONENTS_MACRO)
 write_basic_package_version_file(
-    "${PROJECT_BINARY_DIR}/ladelConfigVersion.cmake"
+    "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
     VERSION "${PROJECT_VERSION}"
     COMPATIBILITY SameMajorVersion)
 
-# Install the ladelConfig.cmake and ladelConfigVersion.cmake
+# Install the LADELConfig.cmake and LADELConfigVersion.cmake
 install(FILES
-    "${PROJECT_BINARY_DIR}/ladelConfig.cmake"
-    "${PROJECT_BINARY_DIR}/ladelConfigVersion.cmake"
+    "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+    "${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
     DESTINATION "${INSTALL_CMAKE_DIR}" 
         COMPONENT dev)
 
 # Add all targets to the build tree export set
 export(EXPORT ladelTargets
-    FILE "${PROJECT_BINARY_DIR}/ladelTargets.cmake"
+    FILE "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake"
     NAMESPACE ${PROJECT_NAME}::)

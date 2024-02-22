@@ -27,4 +27,7 @@ target_include_directories(ladel_run_all_tests
 target_link_libraries(ladel_run_all_tests PRIVATE ladel)
 target_link_libraries(ladel_run_all_tests PRIVATE GTest::gtest_main)
 
-gtest_discover_tests(ladel_run_all_tests DISCOVERY_TIMEOUT 60)
+option(LADEL_FORCE_TEST_DISCOVERY Off)
+if (NOT CMAKE_CROSSCOMPILING OR LADEL_FORCE_TEST_DISCOVERY)
+    gtest_discover_tests(ladel_run_all_tests DISCOVERY_TIMEOUT 60)
+endif()

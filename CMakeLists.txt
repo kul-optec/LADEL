@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 project(LADEL-dev)
-enable_testing()
+include(CTest)
 
 # Add coverage target
 option(LADEL_WITH_COVERAGE
@@ -20,4 +20,6 @@ endif()
 # TODO: add warning flags
 
 add_subdirectory(LADEL)
-add_subdirectory(test)
+if (BUILD_TESTING)
+    add_subdirectory(test)
+endif()
