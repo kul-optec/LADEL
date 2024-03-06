@@ -1,7 +1,7 @@
 #include "ladel_types.h"
 #include "ladel_global.h"
 
-ladel_sparse_matrix *ladel_column_submatrix(ladel_sparse_matrix *M, ladel_int* cols, ladel_int nb_cols)
+ladel_sparse_matrix *ladel_column_submatrix(const ladel_sparse_matrix *M, const ladel_int* cols, ladel_int nb_cols)
 {
     if (!M) return NULL;
     if (!cols) return ladel_sparse_alloc_empty(M->nrow, M->ncol, M->symmetry, M->values, FALSE);

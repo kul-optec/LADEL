@@ -21,9 +21,9 @@ extern "C" {
  * @param nb_cols   Number of columns to take (size of cols)
  * @return          @f$M(:,cols)@f$
  */ 
-ladel_sparse_matrix *ladel_column_submatrix(ladel_sparse_matrix *M, 
-                                            ladel_int           *cols, 
-                                            ladel_int           nb_cols);
+ladel_sparse_matrix *ladel_column_submatrix(const ladel_sparse_matrix *M, 
+                                            const ladel_int           *cols, 
+                                            ladel_int                 nb_cols);
 
 #ifdef __cplusplus
 }

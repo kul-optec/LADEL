@@ -21,7 +21,7 @@ extern "C" {
  * @param S Array with scale factors for the columns
  */
 void ladel_scale_columns(   ladel_sparse_matrix *M, 
-                            ladel_double        *S);
+                            const ladel_double  *S);
 
 /**
  * Scales the rows of @a M with the scalars in @a S, that is @f$M(i,:) = S(i)*M(i,:)@f$.
@@ -30,7 +30,7 @@ void ladel_scale_columns(   ladel_sparse_matrix *M,
  * @param S Array with scale factors for the rows
  */
 void ladel_scale_rows(  ladel_sparse_matrix *M, 
-                        ladel_double        *S);
+                        const ladel_double  *S);
 
 /**
  * Scales the elements of @a M with @a s, that is @f$M = sM@f$.

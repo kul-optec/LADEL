@@ -4,22 +4,22 @@
 #include "ladel_copy.h"
 #include "ladel_matmat.h"
 
-ladel_sparse_matrix *ladel_mat_mat_transpose(ladel_sparse_matrix *M, ladel_sparse_matrix *M_transpose, ladel_work *work)
+ladel_sparse_matrix *ladel_mat_mat_transpose(const ladel_sparse_matrix *M, const ladel_sparse_matrix *M_transpose, ladel_work *work)
 {
     return ladel_mat_mat_transpose_advanced(M, M_transpose, NULL, TRUE, work);
 }
 
-ladel_sparse_matrix *ladel_mat_mat_transpose_pattern(ladel_sparse_matrix *M, ladel_sparse_matrix *M_transpose, ladel_work *work)
+ladel_sparse_matrix *ladel_mat_mat_transpose_pattern(const ladel_sparse_matrix *M, const ladel_sparse_matrix *M_transpose, ladel_work *work)
 {
     return ladel_mat_mat_transpose_advanced(M, M_transpose, NULL, FALSE, work);
 }
 
-ladel_sparse_matrix *ladel_mat_diag_mat_transpose(ladel_sparse_matrix *M, ladel_sparse_matrix *M_transpose, ladel_double *diag, ladel_work *work)
+ladel_sparse_matrix *ladel_mat_diag_mat_transpose(const ladel_sparse_matrix *M, const ladel_sparse_matrix *M_transpose, const ladel_double *diag, ladel_work *work)
 {
     return ladel_mat_mat_transpose_advanced(M, M_transpose, diag, TRUE, work);
 }
 
-ladel_sparse_matrix *ladel_mat_mat_transpose_advanced(ladel_sparse_matrix *M, ladel_sparse_matrix *M_transpose, ladel_double *diag, ladel_int values, ladel_work *work)
+ladel_sparse_matrix *ladel_mat_mat_transpose_advanced(const ladel_sparse_matrix *M, const ladel_sparse_matrix *M_transpose, const ladel_double *diag, ladel_int values, ladel_work *work)
 {
     if (!M || !M_transpose || !work) return NULL;
     

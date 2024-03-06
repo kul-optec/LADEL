@@ -25,11 +25,11 @@ extern "C" {
  * @param work  LADEL workspace
  * @return      @f$C = \alpha A + \beta B@f$
  */ 
-ladel_sparse_matrix *ladel_add_matrices(ladel_double        alpha, 
-                                        ladel_sparse_matrix *A, 
-                                        ladel_double        beta, 
-                                        ladel_sparse_matrix *B, 
-                                        ladel_work          *work);
+ladel_sparse_matrix *ladel_add_matrices(ladel_double              alpha, 
+                                        const ladel_sparse_matrix *A, 
+                                        ladel_double              beta, 
+                                        const ladel_sparse_matrix *B, 
+                                        ladel_work                *work);
 
 /**
  * Returns a pattern matrix whose pattern includes the patterns of @a A and @a B.
@@ -39,9 +39,9 @@ ladel_sparse_matrix *ladel_add_matrices(ladel_double        alpha,
  * @param work  LADEL workspace
  * @return      A sparse matrix whose pattern contains that of @a A and @a B
  */
-ladel_sparse_matrix *ladel_add_matrices_pattern(ladel_sparse_matrix* A, 
-                                                ladel_sparse_matrix *B, 
-                                                ladel_work          *work);
+ladel_sparse_matrix *ladel_add_matrices_pattern(const ladel_sparse_matrix *A,
+                                                const ladel_sparse_matrix *B,
+                                                ladel_work                *work);
 
 /**
  * Returns a sparse matrix @f$C = \alpha A + \beta B@f$ if @a values==TRUE, or a pattern matrix
@@ -55,12 +55,12 @@ ladel_sparse_matrix *ladel_add_matrices_pattern(ladel_sparse_matrix* A,
  * @param work      LADEL workspace
  * @return          @f$C = \alpha A + \beta B@f$ or the sum of the patterns
  */ 
-ladel_sparse_matrix *ladel_add_matrices_advanced(   ladel_double        alpha, 
-                                                    ladel_sparse_matrix *A, 
-                                                    ladel_double        beta, 
-                                                    ladel_sparse_matrix *B, 
-                                                    ladel_int           values, 
-                                                    ladel_work          *work);
+ladel_sparse_matrix *ladel_add_matrices_advanced(ladel_double              alpha,
+                                                 const ladel_sparse_matrix *A,
+                                                 ladel_double              beta,
+                                                 const ladel_sparse_matrix *B,
+                                                 ladel_int                 values,
+                                                 ladel_work                *work);
 
 #ifdef __cplusplus
 }

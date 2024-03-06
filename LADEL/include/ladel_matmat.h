@@ -22,9 +22,9 @@ extern "C" {
  * @param work          LADEL workspace
  * @return              @f$MM^T@f$
  */
-ladel_sparse_matrix *ladel_mat_mat_transpose(   ladel_sparse_matrix *M, 
-                                                ladel_sparse_matrix *M_transpose, 
-                                                ladel_work          *work);
+ladel_sparse_matrix *ladel_mat_mat_transpose(const ladel_sparse_matrix *M, 
+                                             const ladel_sparse_matrix *M_transpose, 
+                                             ladel_work                *work);
 
 /**
  * Computes the pattern of @f$MM^T@f$.
@@ -34,9 +34,9 @@ ladel_sparse_matrix *ladel_mat_mat_transpose(   ladel_sparse_matrix *M,
  * @param work          LADEL workspace
  * @return              The patter of @f$MM^T@f$
  */
-ladel_sparse_matrix *ladel_mat_mat_transpose_pattern(   ladel_sparse_matrix *M, 
-                                                        ladel_sparse_matrix *M_transpose, 
-                                                        ladel_work          *work);
+ladel_sparse_matrix *ladel_mat_mat_transpose_pattern(const ladel_sparse_matrix *M, 
+                                                     const ladel_sparse_matrix *M_transpose, 
+                                                     ladel_work                *work);
 
 /**
  * Computes @f$M\Sigma M^T@f$.
@@ -46,10 +46,10 @@ ladel_sparse_matrix *ladel_mat_mat_transpose_pattern(   ladel_sparse_matrix *M,
  * @param diag          Array containing the diagonal of @f$\Sigma@f$
  * @param work          LADEL workspace
  */
-ladel_sparse_matrix *ladel_mat_diag_mat_transpose(  ladel_sparse_matrix *M, 
-                                                    ladel_sparse_matrix *M_transpose, 
-                                                    ladel_double        *diag, 
-                                                    ladel_work          *work);
+ladel_sparse_matrix *ladel_mat_diag_mat_transpose(const ladel_sparse_matrix *M, 
+                                                  const ladel_sparse_matrix *M_transpose, 
+                                                  const ladel_double        *diag, 
+                                                  ladel_work                *work);
 
 /**
  * Core mat_mat_transpose function with all options (diag and value/pattern).
@@ -63,11 +63,11 @@ ladel_sparse_matrix *ladel_mat_diag_mat_transpose(  ladel_sparse_matrix *M,
  * @param values        Values or pattern computation
  * @param work          LADEL workspace
  */
-ladel_sparse_matrix *ladel_mat_mat_transpose_advanced(  ladel_sparse_matrix *M, 
-                                                        ladel_sparse_matrix *M_transpose, 
-                                                        ladel_double        *diag, 
-                                                        ladel_int           values, 
-                                                        ladel_work          *work);
+ladel_sparse_matrix *ladel_mat_mat_transpose_advanced(const ladel_sparse_matrix *M, 
+                                                      const ladel_sparse_matrix *M_transpose, 
+                                                      const ladel_double        *diag, 
+                                                      ladel_int                 values, 
+                                                      ladel_work                *work);
 
 #ifdef __cplusplus
 }
