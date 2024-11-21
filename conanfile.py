@@ -8,6 +8,7 @@ from conan.tools.build import can_run
 class LADELRecipe(ConanFile):
     name = "ladel"
     version = "0.0.1"
+    package_type = "library"
 
     # Optional metadata
     license = "LGPLv3"
@@ -40,7 +41,7 @@ class LADELRecipe(ConanFile):
     generators = ("CMakeDeps",)
 
     def requirements(self):
-        self.test_requires("gtest/1.11.0")
+        self.test_requires("gtest/1.15.0")
 
     def config_options(self):
         if self.settings.get_safe("os") == "Windows":
@@ -67,4 +68,5 @@ class LADELRecipe(ConanFile):
 
     def package_info(self):
         self.cpp_info.set_property("cmake_find_mode", "none")
+        self.cpp_info.set_property("cmake_file_name", "LADEL")
         self.cpp_info.builddirs.append(os.path.join("lib", "cmake", "LADEL"))
