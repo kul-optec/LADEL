@@ -5,7 +5,7 @@ project(LADEL-mex)
 find_package(Matlab REQUIRED COMPONENTS MEX_COMPILER)
 
 # Compile the utility library
-add_library(mex_util OBJECT src/ladel_mex_util.c)
+add_library(mex_util STATIC src/ladel_mex_util.c)
 target_link_libraries(mex_util PUBLIC LADEL::ladel Matlab::mex)
 target_sources(mex_util PUBLIC FILE_SET HEADERS
     BASE_DIRS "include"
