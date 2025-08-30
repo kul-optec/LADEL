@@ -7,7 +7,7 @@ from conan.tools.build import can_run
 
 class LADELRecipe(ConanFile):
     name = "ladel"
-    version = "0.0.3"
+    version = "0.0.4"
     package_type = "library"
 
     # Optional metadata
