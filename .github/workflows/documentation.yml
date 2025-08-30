@@ -7,14 +7,14 @@ on:
 
 jobs:
   deploy-docs:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     # Checks-out the repository under $GITHUB_WORKSPACE
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v5
 
     # Cache the doxygen executable, lcov
-    - uses: actions/cache@v3
+    - uses: actions/cache@v4
       id: cache-tools
       with:
         path: |
@@ -47,7 +47,7 @@ jobs:
     # Install Python
     - uses: actions/setup-python@v4
       with:
-        python-version: '3.9.6'
+        python-version: '3.9'
 
     # Create the `gh-pages` branch if it doesn't exist already, check it out, 
     # and copy it to /tmp/staging.
@@ -64,8 +64,6 @@ jobs:
     - name: Generate documentation
       run: ./scripts/ci/gen-docs.sh /tmp/staging
       env:
-        CC: gcc-10
-        CXX: g++-10
         CMAKE_PREFIX_PATH: /tmp/gtest
 
     # Commit the new documentation, squash the commits, and push it to GitHub

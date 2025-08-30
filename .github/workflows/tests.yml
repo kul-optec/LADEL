@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build-and-test-linux:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     strategy:
       matrix:
         col-counts: ['-DLADEL_SIMPLE_COL_COUNTS=On',
@@ -16,7 +16,7 @@ jobs:
         float:      ['-DLADEL_SINGLE_PRECISION=On',
                      '-DLADEL_SINGLE_PRECISION=Off']
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v5
     - name: Install Google Test
       shell: bash
       run: ./scripts/install-gtest.sh Debug
@@ -47,7 +47,7 @@ jobs:
         float:      ['-DLADEL_SINGLE_PRECISION=On',
                      '-DLADEL_SINGLE_PRECISION=Off']
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v5
     - name: Install Google Test
       shell: powershell
       run: ./scripts/install-gtest.ps1 Debug
