@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.23...4.1)
-project(LADEL VERSION 0.0.2)
+project(LADEL VERSION 0.0.3)
 
 option (LADEL_SIMPLE_COL_COUNTS
     "Simplify symbolic analysis (worse asymptotic time complexity)" On)
