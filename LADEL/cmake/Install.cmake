@@ -2,14 +2,23 @@ include(GNUInstallDirs)
 
 set(INSTALL_CMAKE_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 
+set(LADEL_TARGETS ladel)
+if (LADEL_WITH_MEX)
+    list(APPEND LADEL_TARGETS mex_util)
+endif()
+
 # Add the ladel library to the "export-set", install the library files
-install(TARGETS ladel EXPORT ladelTargets
+install(TARGETS ${LADEL_TARGETS}
+    EXPORT ladelTargets
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
         COMPONENT shlib
     LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-        COMPONENT shlib
+        COMPONENT shlib 
+        NAMELINK_COMPONENT dev
     ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" 
-        COMPONENT lib)
+        COMPONENT dev
+    FILE_SET HEADERS DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}" 
+        COMPONENT dev)
 if (LADEL_USE_AMD)
     install(TARGETS ladel_amd amd-headers suitesparse_config-headers 
         EXPORT ladelTargets
@@ -18,17 +27,11 @@ if (LADEL_USE_AMD)
         LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
             COMPONENT shlib
         ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}" 
-            COMPONENT lib)
+            COMPONENT dev)
 endif()
 
-# Install the header files
-install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/include/"
-    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
-        COMPONENT dev
-        FILES_MATCHING REGEX "/.*\.[hti](pp)?$")
-
 # Install the export set for use with the install-tree
-install(EXPORT ladelTargets 
+install(EXPORT ladelTargets
     FILE ${PROJECT_NAME}Targets.cmake
     DESTINATION "${INSTALL_CMAKE_DIR}" 
         COMPONENT dev

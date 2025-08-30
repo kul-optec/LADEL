@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.17)
-project(LADEL VERSION 0.1.0)
+cmake_minimum_required(VERSION 3.23...4.1)
+project(LADEL VERSION 0.0.2)
 
 option (LADEL_SIMPLE_COL_COUNTS
     "Simplify symbolic analysis (worse asymptotic time complexity)" On)
@@ -39,9 +39,31 @@ add_library(ladel
     "src/ladel_matmat.c"
     "src/ladel_rank1_mod.c"
 )
-target_include_directories(ladel
-    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-           $<INSTALL_INTERFACE:include>)
+target_sources(ladel PUBLIC FILE_SET HEADERS
+    BASE_DIRS "include"
+    FILES "include/ladel_add.h"
+          "include/ladel_col_counts.h"
+          "include/ladel_constants.h"
+          "include/ladel_copy.h"
+          "include/ladel_debug_print.h"
+          "include/ladel_etree.h"
+          "include/ladel_global.h"
+          "include/ladel.h"
+          "include/ladel_ldl_numeric.h"
+          "include/ladel_ldl_symbolic.h"
+          "include/ladel_matmat.h"
+          "include/ladel_matvec.h"
+          "include/ladel_pattern.h"
+          "include/ladel_permutation.h"
+          "include/ladel_postorder.h"
+          "include/ladel_rank1_mod.h"
+          "include/ladel_row_mod.h"
+          "include/ladel_scale.h"
+          "include/ladel_submatrix.h"
+          "include/ladel_transpose.h"
+          "include/ladel_types.h"
+          "include/ladel_upper_diag.h"
+)
 target_compile_definitions(ladel PUBLIC 
     $<$<BOOL:${LADEL_SIMPLE_COL_COUNTS}>:LADEL_SIMPLE_COL_COUNTS>
     $<$<BOOL:${LADEL_64BIT_INDICES}>:LADEL_64BIT_INDICES>

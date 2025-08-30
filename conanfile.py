@@ -7,7 +7,7 @@ from conan.tools.build import can_run
 
 class LADELRecipe(ConanFile):
     name = "ladel"
-    version = "0.0.1"
+    version = "0.0.2"
     package_type = "library"
 
     # Optional metadata
@@ -22,10 +22,12 @@ class LADELRecipe(ConanFile):
     options = {
         "shared": [True, False],
         "fPIC": [True, False],
+        "with_mex": [True, False]
     }
     default_options = {
         "shared": False,
         "fPIC": True,
+        "with_mex": False,
     }
 
     # Sources are located in the same place as this recipe, copy them to the recipe
@@ -41,7 +43,10 @@ class LADELRecipe(ConanFile):
     generators = ("CMakeDeps",)
 
     def requirements(self):
-        self.test_requires("gtest/1.15.0")
+        self.test_requires("gtest/1.17.0")
+
+    def build_requirements(self):
+        self.tool_requires("cmake/[>=3.23 <4.2]")
 
     def config_options(self):
         if self.settings.get_safe("os") == "Windows":
@@ -52,6 +57,8 @@ class LADELRecipe(ConanFile):
 
     def generate(self):
         tc = CMakeToolchain(self)
+        if self.options.get_safe("with_mex"):
+            tc.variables["LADEL_WITH_MEX"] = True
         if can_run(self):
             tc.variables["LADEL_FORCE_TEST_DISCOVERY"] = True
         tc.generate()
