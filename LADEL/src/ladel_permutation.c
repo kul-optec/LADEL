@@ -97,9 +97,9 @@ void ladel_permute_symmetric_matrix(ladel_sparse_matrix *M, ladel_int *p, ladel_
         for (col = 1; col < ncol; col++)
         {
             prev_col_count = col_counts[col-1];
+            col_counts[col-1] = Mpp->p[col-1];
             Mpp->p[col] = prev_col_count;
             col_counts[col] += prev_col_count; 
-            col_counts[col-1] = Mpp->p[col-1]; 
         }
         Mpp->p[ncol] = col_counts[ncol-1];
         col_counts[ncol-1] = Mpp->p[ncol-1];
